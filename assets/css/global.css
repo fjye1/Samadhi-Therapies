@@ -1,0 +1,17 @@
+:root {
+  --primary-color: #6C5CE7;    /* Deep purple – main brand color, headers/buttons */
+  --secondary-color: #00B894;  /* Soft green – accent, buttons, highlights */
+  --accent-color: #FD79A8;     /* Gentle pink – call-to-action, links */
+  --neutral-color: #F1F1F1;    /* Light grey – background, sections */
+}
+
+.navbar {
+  background-color: var(--primary-color);
+}
+
+.nav-link, .navbar-brand {
+  color: #fff;
+}
+.nav-link.active {
+  font-weight: bold;
+}

@@ -1,0 +1,45 @@
+.site-footer {
+  text-align: center; /* center everything */
+  padding: 2rem 1rem; /* space around content */
+  background-color: #f8f9fa; /* light gray background */
+  color: #555; /* subtle text color */
+  font-size: 0.9rem;
+  border-top: 1px solid #ddd; /* optional top border */
+}
+
+.site-footer p {
+  margin: 0.3rem 0; /* spacing between lines */
+}
+
+/* optional: make the date and copyright slightly different */
+.last-updated {
+  font-style: italic;
+  color: #777;
+}
+
+.contact-icon:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem; /* space between icons */
+  margin-top: 1rem;
+  flex-wrap: wrap; /* allows breaking */
+}
+
+.contact-icon {
+  width: 32px; /* adjust to taste */
+  height: 32px;
+  opacity: 0.7;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+
+.last-updated {
+  font-style: italic;
+  color: #777;
+}
