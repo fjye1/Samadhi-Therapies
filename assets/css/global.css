@@ -18,10 +18,19 @@
 
 
 .hero {
-  background: url('../images/Saba_Share_image1200x630px.png') center/cover no-repeat;
+  background: url('../images/hero1100x1100px.png') center/cover no-repeat;
+  height: 80vh;
+}
+.hero-2 {
+  background: url('../images/hero1100x1100px2.png') center/cover no-repeat;
   height: 80vh;
 }
 
 .hero-overlay {
   background: rgba(0,0,0,0.4);
+}
+
+.about-img {
+  max-width: 250px;
+  height: auto;
 }
