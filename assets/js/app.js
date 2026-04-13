@@ -1,5 +1,6 @@
 function loadPage(page) {
-  fetch("/pages/" + page)
+  // FIXED: Removed leading slash for root-agnostic fetching
+  fetch("pages/" + page)
     .then((res) => res.text())
     .then((html) => {
       document.getElementById("content").innerHTML = html;
@@ -13,6 +14,11 @@ function handleRoute() {
     page = "home.html"; // default page
   }
 
+  // Ensure we append .html if the hash doesn't have it
+  if (!page.endsWith(".html")) {
+    page += ".html";
+  }
+
   loadPage(page);
 }
 
@@ -23,6 +29,7 @@ window.addEventListener("load", handleRoute);
 window.addEventListener("hashchange", handleRoute);
 
 function loadComponent(id, htmlPath, cssPath) {
+  // Path here is determined by how you call the function below
   fetch(htmlPath)
     .then((res) => res.text())
     .then((html) => {
@@ -32,15 +39,15 @@ function loadComponent(id, htmlPath, cssPath) {
         const link = document.createElement("link");
         link.rel = "stylesheet";
         link.href = cssPath;
-
         document.head.appendChild(link);
       }
     });
 }
 
 window.addEventListener("load", () => {
-  loadComponent("header", "/components/_header.html", "/assets/css/header.css");
-  loadComponent("footer", "/components/_footer.html", "/assets/css/footer.css");
+  // FIXED: Removed leading slashes from all paths
+  loadComponent("header", "components/_header.html", "assets/css/header.css");
+  loadComponent("footer", "components/_footer.html", "assets/css/footer.css");
 
-  handleRoute(); // your page loader
+  handleRoute(); 
 });
