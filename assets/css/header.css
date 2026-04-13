@@ -1,0 +1,10 @@
+.navbar {
+  background-color: var(--primary-color);
+}
+
+.nav-link, .navbar-brand {
+  color: black;
+}
+.nav-link.active {
+  font-weight: bold;
+}

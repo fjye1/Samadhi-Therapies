@@ -5,18 +5,6 @@
   --neutral-color: #F1F1F1;    /* Light grey – background, sections */
 }
 
-.navbar {
-  background-color: var(--primary-color);
-}
-
-.nav-link, .navbar-brand {
-  color: #fff;
-}
-.nav-link.active {
-  font-weight: bold;
-}
-
-
 .hero {
   background: url('../images/hero1100x1100px.png') center/cover no-repeat;
   height: 80vh;
@@ -34,3 +22,5 @@
   max-width: 250px;
   height: auto;
 }
+
+
