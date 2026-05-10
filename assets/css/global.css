@@ -1,21 +1,99 @@
 :root {
-  --primary-color: #6C5CE7;    /* Deep purple – main brand color, headers/buttons */
-  --secondary-color: #00B894;  /* Soft green – accent, buttons, highlights */
-  --accent-color: #FD79A8;     /* Gentle pink – call-to-action, links */
-  --neutral-color: #F1F1F1;    /* Light grey – background, sections */
+  /* Replace these hex codes with your actual 3 colors */
+
+  --primary-color: #e8cc8f; /* Example: A calming sage or slate */
+  --secondary-color: #faf5f0; /* Example: A warm earth tone */
+  --neutral-bg: #b6967e; /* Example: A soft off-white/cream */
+
+  --button: #e3eff9;
+  --buton-hover: #b9d7f0;
+
+  /* Text colors for readability */
+  --text-dark: #2b2d42;
+  --text-light: #ffffff;
 }
 
-.hero {
-  background: url('../images/hero1100x1100px.png') center/cover no-repeat;
-  height: 80vh;
+body {
+  background: #f9ede3 !important;
 }
-.hero-2 {
-  background: url('../images/hero1100x1100px2.png') center/cover no-repeat;
-  height: 80vh;
+
+.bg-yellow{
+  background: #faf5f0;
+}
+
+.samadhi-btn-standard {
+  /* Layout */
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 12px 30px;
+  border-radius: 999px;
+  text-decoration: none;
+
+  /* Typography & The Spacing You Liked */
+  
+  font-weight: 200;
+  font-size: 18px;
+  letter-spacing: 2px;       /* The 'spa' feel spacing */
+  text-transform: uppercase;
+
+  /* Colors from your Samadhi Palette */
+  background-color: #e3eff9; /* Your primary Slate color */
+  color: var(--text-dark);            /* White text for contrast */
+  border: 1px solid #e3eff9;
+  
+  /* Simple Hover */
+  transition: 0.3s;
+}
+
+.samadhi-btn-standard:hover {
+  background-color: #b9d7f0; /* Your Cream background color */
+  color: #5d737e;            /* Text flips to Slate */
+}
+
+
+.hero-container {
+  display: flex;
+  align-items: center; /* Vertically centers the logo and text */
+  justify-content: space-between; /* Pushes items to the edges */
+  padding: 40px 10%; /* Adds breathing room on the sides */
+  min-height: 80vh; /* Makes the hero tall and impactful */
+  background-color: var(--primary-color); /* Light background for contrast */
+}
+
+.logo-side {
+  flex: 1; /* Allows the logo container to grow/shrink */
+}
+
+.hero-logo {
+  max-width: 500px; /* Keeps the logo at a reasonable size */
+  height: auto;
+}
+
+.content-side {
+  flex: 1; /* Takes up the other half of the space */
+  text-align: right; /* Aligns the text to the right side */
+}
+
+.content-side h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column; /* Stacks them vertically on small screens */
+    text-align: center;
+  }
+
+  .content-side {
+    text-align: center;
+    margin-top: 20px;
+  }
 }
 
 .hero-overlay {
-  background: rgba(0,0,0,0.4);
+  background: var(--text-dark);
 }
 
 .about-img {
@@ -23,4 +101,55 @@
   height: auto;
 }
 
+.rounded-circle {
+  width: 50%;
+  max-width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+}
+
+/* The Nav Bar Container */
+.samadhi-nav {
+  background-color: #f9ede3; /* Your brand cream background */
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(93, 115, 126, 0.1); /* Very faint slate line */
+}
+
+/* The Brand/Logo Text */
+.samadhi-brand {
+  color: #5d737e;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* The Individual Links */
+.samadhi-link {
+  color: #5d737e;
+  text-decoration: none;
+  font-weight: 200;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  transition: 0.3s;
+}
+
+.samadhi-link:hover {
+  color: #b6967e; /* Using your earthy neutral for the hover */
+  opacity: 0.8;
+}
+
+/* Fix for the Mobile Hamburger Icon color */
+.navbar-toggler {
+  border-color: rgba(93, 115, 126, 0.2);
+}
+
+.navbar-toggler-icon {
+  /* This trick makes the default bootstrap icon match your slate color */
+  filter: invert(47%) sepia(13%) saturate(541%) hue-rotate(156deg)
+    brightness(91%) contrast(85%);
+}
 

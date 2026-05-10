@@ -1,10 +1,44 @@
-.navbar {
-  background-color: var(--primary-color);
+/* The Nav Bar Container */
+.samadhi-nav {
+  background-color: #f9ede3; /* Your brand cream background */
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(93, 115, 126, 0.1); /* Very faint slate line */
 }
 
-.nav-link, .navbar-brand {
-  color: black;
+/* The Brand/Logo Text */
+.samadhi-brand {
+  color: #5d737e;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
-.nav-link.active {
-  font-weight: bold;
+
+/* The Individual Links */
+.samadhi-link {
+  color: #5d737e;
+  text-decoration: none;
+  font-weight: 200;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  transition: 0.3s;
+}
+
+.samadhi-link:hover {
+  color: #b6967e; /* Using your earthy neutral for the hover */
+  opacity: 0.8;
+}
+
+/* Fix for the Mobile Hamburger Icon color */
+.navbar-toggler {
+  border-color: rgba(93, 115, 126, 0.2);
+}
+
+.navbar-toggler-icon {
+  /* This trick makes the default bootstrap icon match your slate color */
+  filter: invert(47%) sepia(13%) saturate(541%) hue-rotate(156deg)
+    brightness(91%) contrast(85%);
 }
