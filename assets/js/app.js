@@ -1,20 +1,14 @@
-function loadPage(page) {
-  // FIXED: Removed leading slash for root-agnostic fetching
-  fetch("pages/" + page)
-    .then((res) => res.text())
-    .then((html) => {
-      document.getElementById("content").innerHTML = html;
-    });
-}
+// ==========================
+// ROUTER
+// ==========================
 
 function handleRoute() {
   let page = window.location.hash.replace("#", "");
 
-  if (page === "") {
-    page = "home.html"; // default page
+  if (!page) {
+    page = "home.html";
   }
 
-  // Ensure we append .html if the hash doesn't have it
   if (!page.endsWith(".html")) {
     page += ".html";
   }
@@ -22,14 +16,56 @@ function handleRoute() {
   loadPage(page);
 }
 
-// first load
-window.addEventListener("load", handleRoute);
+function loadPage(page) {
+  fetch("pages/" + page)
+    .then((res) => res.text())
+    .then((html) => {
+      const container = document.getElementById("content");
+      container.innerHTML = html;
 
-// when user clicks links (hash changes)
-window.addEventListener("hashchange", handleRoute);
+      // IMPORTANT: run AFTER DOM injection
+      onPageLoaded(page);
+    });
+}
+
+function loadPageStyle(path) {
+  if (document.querySelector(`link[data-page-style="${path}"]`)) return;
+
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = path;
+  link.dataset.pageStyle = path;
+
+  document.head.appendChild(link);
+}
+
+function removePageStyles() {
+  document.querySelectorAll("link[data-page-style]").forEach((el) => el.remove());
+}
+
+// ==========================
+// PAGE INIT CONTROLLER
+// ==========================
+
+function onPageLoaded(page) {
+  if (page === "home.html") {
+    removePageStyles();
+    loadPageStyle("assets/css/home.css");
+    initHomePage();
+  }
+
+  if (page === "services.html") {
+    removePageStyles();
+    loadPageStyle("assets/css/services.css");
+    initServicesPage();
+  }
+}
+
+// ==========================
+// COMPONENT LOADER
+// ==========================
 
 function loadComponent(id, htmlPath, cssPath) {
-  // Path here is determined by how you call the function below
   fetch(htmlPath)
     .then((res) => res.text())
     .then((html) => {
@@ -44,10 +80,84 @@ function loadComponent(id, htmlPath, cssPath) {
     });
 }
 
+// ==========================
+// SERVICES PAGE
+// ==========================
+
+function initServicesPage() {
+  const container = document.getElementById("services-container");
+  if (!container) return;
+
+  fetch("assets/data/services.json")
+    .then((res) => res.json())
+    .then((data) => renderServices(data.services, container));
+}
+
+function renderServices(services, container) {
+  container.innerHTML = "";
+
+  services.forEach((service) => {
+    const col = document.createElement("div");
+    col.className = "col";
+
+    col.innerHTML = `
+      <div class="service-card card h-100 border-0 shadow-sm">
+
+        <img 
+          src="${service.image}" 
+          class="card-img-top" 
+          alt="${service.name}"
+        />
+
+        <div class="card-body">
+          <h5>${service.name}</h5>
+          <p>${service.description}</p>
+
+          <div class="price-list">
+            ${service.prices
+              .map(
+                (item) => `
+                  <div class="price-row">
+                    <span>${item.duration}</span>
+                    <span>${item.price}</span>
+                  </div>
+                `
+              )
+              .join("")}
+          </div>
+        </div>
+
+        <div class="card-footer bg-transparent border-0">
+          <a href="book.html" class="btn btn-dark w-100">
+            Book Now
+          </a>
+        </div>
+
+      </div>
+    `;
+
+    container.appendChild(col);
+  });
+}
+
+// ==========================
+// HOME PAGE (placeholder)
+// ==========================
+
+function initHomePage() {
+  // example: services slider already exists on home
+  initServicesPage();
+}
+
+// ==========================
+// BOOTSTRAP
+// ==========================
+
 window.addEventListener("load", () => {
-  // FIXED: Removed leading slashes from all paths
   loadComponent("header", "components/_header.html", "assets/css/header.css");
   loadComponent("footer", "components/_footer.html", "assets/css/footer.css");
 
-  handleRoute(); 
+  handleRoute();
 });
+
+window.addEventListener("hashchange", handleRoute);
