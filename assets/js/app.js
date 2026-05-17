@@ -1,7 +1,7 @@
 // ==========================
 // CONSTANTS & GLOBALS
 // ==========================
-
+const BASE = "/SamadhiTherapies";
 SERVICE_LIMIT = 5; // max number of services to show on home page
 
 // ==========================
