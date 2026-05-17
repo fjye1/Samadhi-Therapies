@@ -71,7 +71,7 @@ function onPageLoaded(page) {
 // COMPONENT LOADER
 // ==========================
 
-function loadComponent(id, htmlPath, cssPath) {
+function loadComponent(id, htmlPath, cssPath, onLoaded) { // ← add onLoaded param
   fetch(htmlPath)
     .then((res) => res.text())
     .then((html) => {
@@ -83,6 +83,8 @@ function loadComponent(id, htmlPath, cssPath) {
         link.href = cssPath;
         document.head.appendChild(link);
       }
+
+      if (onLoaded) onLoaded(); // ← call it after DOM is injected
     });
 }
 
@@ -165,9 +167,21 @@ function initHomePage() {
 // ==========================
 
 window.addEventListener("load", () => {
-  loadComponent("header", "components/_header.html", "assets/css/header.css");
-  loadComponent("footer", "components/_footer.html", "assets/css/footer.css");
+  loadComponent("header", "components/_header.html", "assets/css/header.css", () => {
+    // ✅ .hero-container now exists in the DOM
+    const hero = document.querySelector(".hero-container");
+    if (hero) {
+      window.addEventListener(
+        "scroll",
+        () => {
+          hero.classList.toggle("shrink", window.scrollY > 50);
+        },
+        { passive: true }
+      );
+    }
+  });
 
+  loadComponent("footer", "components/_footer.html", "assets/css/footer.css");
   handleRoute();
 });
 
