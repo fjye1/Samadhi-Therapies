@@ -1,4 +1,10 @@
 // ==========================
+// CONSTANTS & GLOBALS
+// ==========================
+
+SERVICE_LIMIT = 5; // max number of services to show on home page
+
+// ==========================
 // ROUTER
 // ==========================
 
@@ -90,8 +96,13 @@ function initServicesPage() {
 
   fetch("assets/data/services.json")
     .then((res) => res.json())
-    .then((data) => renderServices(data.services, container));
+    .then((data) => {
+      // .slice(0, 3) takes only the first 3 items from the array
+      const limitedServices = data.services.slice(0, SERVICE_LIMIT); 
+      renderServices(limitedServices, container);
+    });
 }
+
 
 function renderServices(services, container) {
   container.innerHTML = "";

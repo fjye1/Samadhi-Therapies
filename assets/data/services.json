@@ -1,48 +1,84 @@
 {
-  "services": [
-    {
-      "id": 1,
-      "name": "Swedish Massage",
-      "image": "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=500",
-      "description": "A classic whole-body massage designed to relax the muscles and improve overall circulation.",
-      "prices": [
+    "services": [
         {
-          "duration": "60 Minutes",
-          "price": "$85"
+            "id": 1,
+            "name": "Swedish Massage",
+            "image": "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=500",
+            "description": "A classic whole-body massage designed to relax the muscles and improve overall circulation.",
+            "prices": [
+                {
+                    "duration": "60 Minutes",
+                    "price": "$85"
+                },
+                {
+                    "duration": "90 Minutes",
+                    "price": "$120"
+                }
+            ]
         },
         {
-          "duration": "90 Minutes",
-          "price": "$120"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Deep Tissue Massage",
-      "image": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=500",
-      "description": "Focuses on realigning deeper layers of muscles. Great for chronic aches and tight shoulders.",
-      "prices": [
-        {
-          "duration": "60 Minutes",
-          "price": "$95"
+            "id": 2,
+            "name": "Deep Tissue Massage",
+            "image": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=500",
+            "description": "Focuses on realigning deeper layers of muscles. Great for chronic aches and tight shoulders.",
+            "prices": [
+                {
+                    "duration": "60 Minutes",
+                    "price": "$95"
+                },
+                {
+                    "duration": "90 Minutes",
+                    "price": "$135"
+                }
+            ]
         },
         {
-          "duration": "90 Minutes",
-          "price": "$135"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "name": "Hydrating Facial",
-      "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500",
-      "description": "A deeply nourishing treatment that restores moisture, leaving your skin plump and glowing.",
-      "prices": [
+            "id": 3,
+            "name": "Hydrating Facial",
+            "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500",
+            "description": "A deeply nourishing treatment that restores moisture, leaving your skin plump and glowing.",
+            "prices": [
+                {
+                    "duration": "45 Minutes",
+                    "price": "$70"
+                }
+            ]
+        },
         {
-          "duration": "45 Minutes",
-          "price": "$70"
+            "id": 4,
+            "name": "Hydrating Facial",
+            "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500",
+            "description": "A deeply nourishing treatment that restores moisture, leaving your skin plump and glowing.",
+            "prices": [
+                {
+                    "duration": "45 Minutes",
+                    "price": "$70"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Hydrating Facial",
+            "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500",
+            "description": "A deeply nourishing treatment that restores moisture, leaving your skin plump and glowing.",
+            "prices": [
+                {
+                    "duration": "45 Minutes",
+                    "price": "$70"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Hydrating Facial",
+            "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500",
+            "description": "A deeply nourishing treatment that restores moisture, leaving your skin plump and glowing.",
+            "prices": [
+                {
+                    "duration": "45 Minutes",
+                    "price": "$70"
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }
