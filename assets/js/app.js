@@ -139,7 +139,7 @@ function renderServices(services, container) {
         </div>
 
         <div class="card-footer bg-transparent border-0">
-          <a href="book.html" class="btn btn-dark w-100">
+          <a href="book.html" class="samadhi-btn-standard">
             Book Now
           </a>
         </div>

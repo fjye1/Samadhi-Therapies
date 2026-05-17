@@ -12,6 +12,52 @@
   --text-dark: #2b2d42;
   --text-light: #ffffff;
 }
+/* ==========================================================================
+   Fonts & Typography
+   ========================================================================== */
+@font-face {
+  font-family: "Moon";
+  src: url("../fonts/moon-time-regular/moon-time-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "samarn";
+  src: url("../fonts/samarkan/SAMARN__.TTF") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "cormorant";
+  src: url("../fonts/Cormorant_Garamond,Libre_Baskerville/Cormorant_Garamond/CormorantGaramond-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "montserrat";
+  src: url("../fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  letter-spacing: 2px;
+}
+
+.samadhi-nav .samadhi-brand {
+  text-transform: uppercase;
+  letter-spacing: 10px !important; 
+  font-weight: 500;
+}
+
+body, button, input, select, textarea {
+  font-family: "montserrat", sans-serif;
+}
 
 body {
   background: #f9ede3 !important;
